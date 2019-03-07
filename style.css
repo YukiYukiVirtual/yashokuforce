@@ -1,0 +1,115 @@
+body
+{
+	margin: 0;
+}
+
+#wrapper
+{
+	padding: 1ex;
+}
+
+.logo
+{
+	text-align: center;
+}
+
+.logo h1
+{
+	display: inline;
+	font-size: 96px;
+}
+
+.member-list
+{
+	text-align: center;
+}
+
+.list-box
+{
+	text-align: center;
+	display: inline-block;
+	width: 26%;
+	height: auto;
+	background-color: #FAD1D6;
+	border: solid 2px #E15894;
+	padding: 10px;
+	margin: 10px;
+	animation-name: fadein;
+	animation-duration: 2s;
+}
+
+.inner-box
+{
+}
+
+@keyframes fadein
+{
+	from {
+			opacity: 0;
+			transform: translateY(-20px);
+	}
+	to {
+			opacity: 1;
+			transform: translateY(0);
+	}
+}
+
+.profile
+{
+	text-align: left;
+	width: auto;
+	background-color: #fff2fe;
+	margin-top: 5px;
+	border: solid 2px #E15894;
+}
+
+.profile > div
+{
+	padding: 3px;
+}
+
+.profile a
+{
+	color: blue;
+}
+
+.list-box img
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: solid 3px #870000;
+	position: relative;
+}
+
+h1
+{
+	text-align: center;
+	font-family: 'Kosugi Maru', sans-serif;
+}
+
+.club > div
+{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+.club ul
+{
+	margin: 2px 5px 3px;
+	padding: 0;
+	text-align: left;
+}
+
+.club ul li
+{
+		color: #FFFFFF;
+		border: solid 2px #16BAC5;
+		display: inline-block;
+		background-color: #5FBFF9;
+		margin: 2px;
+		padding: 2px;
+		text-align: left;
+}
