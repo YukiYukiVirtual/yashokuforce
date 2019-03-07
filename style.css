@@ -5,18 +5,27 @@ body
 
 #wrapper
 {
-	padding: 1ex;
 }
 
-.logo
+.header
 {
 	text-align: center;
 }
 
-.logo h1
+.header h1
 {
 	display: inline;
 	font-size: 96px;
+}
+
+.mayomayo:after
+{
+	content: "";
+	display: block;
+	height: 64px;
+	width: 100%;
+	background: url(https://cdn.discordapp.com/emojis/550297430164504576.png);
+	background-size: contain;
 }
 
 .member-list
@@ -26,16 +35,27 @@ body
 
 .list-box
 {
-	text-align: center;
+	vertical-align: top;
 	display: inline-block;
 	width: 26%;
 	height: auto;
 	background-color: #FAD1D6;
 	border: solid 2px #E15894;
-	padding: 10px;
+	padding: 0.5%;
 	margin: 10px;
 	animation-name: fadein;
 	animation-duration: 2s;
+}
+
+.list-box img
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: solid 3px #870000;
 }
 
 .inner-box
@@ -59,7 +79,8 @@ body
 	text-align: left;
 	width: auto;
 	background-color: #fff2fe;
-	margin-top: 5px;
+	margin-top: 1%;
+	padding: 3px 1ex;
 	border: solid 2px #E15894;
 }
 
@@ -71,18 +92,6 @@ body
 .profile a
 {
 	color: blue;
-}
-
-.list-box img
-{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	border: solid 3px #870000;
-	position: relative;
 }
 
 h1
@@ -112,4 +121,12 @@ h1
 		margin: 2px;
 		padding: 2px;
 		text-align: left;
+}
+
+.footer
+{
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+	margin: 1em;
 }
