@@ -1,10 +1,12 @@
 body
 {
+	font-family: Arial,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 	margin: 0;
 }
 
 #wrapper
 {
+	padding: 1em 0;
 }
 
 .header
@@ -28,12 +30,39 @@ body
 	background-size: contain;
 }
 
+.club
+{
+		color: #FFFFFF;
+		border: solid 2px #16BAC5;
+		display: inline-block;
+		background-color: #5FBFF9;
+		margin: 2px;
+		padding: 2px;
+		text-align: left;
+}
+
+.filter-list
+{
+	text-align: center;
+}
+
+.filter-list .club
+{
+	cursor: pointer;
+	user-select: none;
+}
+
+.filter-selected
+{
+	opacity: 0.7;
+}
+
 .member-list
 {
 	text-align: center;
 }
 
-.list-box
+.member-list-box
 {
 	vertical-align: top;
 	display: inline-block;
@@ -42,12 +71,12 @@ body
 	background-color: #FAD1D6;
 	border: solid 2px #E15894;
 	padding: 0.5%;
-	margin: 10px;
+	margin: 0.5%;
 	animation-name: fadein;
 	animation-duration: 2s;
 }
 
-.list-box img
+.profile-image
 {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -56,10 +85,6 @@ body
 	box-sizing: border-box;
 	width: 100%;
 	border: solid 3px #870000;
-}
-
-.inner-box
-{
 }
 
 @keyframes fadein
@@ -80,7 +105,7 @@ body
 	width: auto;
 	background-color: #fff2fe;
 	margin-top: 1%;
-	padding: 3px 1ex;
+	padding: 1%;
 	border: solid 2px #E15894;
 }
 
@@ -100,27 +125,11 @@ h1
 	font-family: 'Kosugi Maru', sans-serif;
 }
 
-.club > div
-{
-	margin-top: 4px;
-	margin-bottom: 4px;
-}
-.club ul
+.clubs
 {
 	margin: 2px 5px 3px;
 	padding: 0;
 	text-align: left;
-}
-
-.club ul li
-{
-		color: #FFFFFF;
-		border: solid 2px #16BAC5;
-		display: inline-block;
-		background-color: #5FBFF9;
-		margin: 2px;
-		padding: 2px;
-		text-align: left;
 }
 
 .footer
@@ -129,4 +138,9 @@ h1
 	font-size: large;
 	font-weight: bold;
 	margin: 1em;
+}
+
+.hide
+{
+	display: none;
 }
