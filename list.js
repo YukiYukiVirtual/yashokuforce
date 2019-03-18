@@ -1,5 +1,14 @@
 (function()
 {
+	// 最後のスクロール位置を保存するイベント
+	window.onbeforeunload = function(e) {
+		localStorage.setItem("pageYOffset", pageYOffset);
+		return;
+	};
+	const scrollTime = 500;
+	const scrollInterval = 10;
+	// 最後のスクロール位置を取得
+	const lastPageYOffset = 0 + localStorage.getItem("pageYOffset");
 	// spread sheetからjsonを取得する処理
 	const xhr = new XMLHttpRequest();
 	// onloadを設定
@@ -12,6 +21,8 @@
 			// clubNameUniqueArrayをソートする
 			clubNameUniqueArray.sort();
 			createFilter();
+			// 最後のスクロール位置を復元する
+			restorePageOffset();
 		}
 	};
 	xhr.open("GET", "https://spreadsheets.google.com/feeds/list/1ahI3h-FQZHUmQ9LH-X5wdtjHJHSZm1wsBtbcka3MBY0/od6/public/values?alt=json", true);
@@ -187,5 +198,26 @@
 				box.classList.add("hide");
 			})();
 		}
+	}
+	function restorePageOffset()
+	{
+		const startTime = new Date();
+		const scrollTime = 500;
+		function ease(p)
+		{
+			return (0.5 - Math.cos(p * Math.PI) / 2); // swing
+		}
+		function move()
+		{
+			const p = (new Date() - startTime) / scrollTime;
+			const y = lastPageYOffset * ease(p < 0.99?p:1);
+			window.scrollTo(0, y);
+			console.log(pageYOffset);
+			if(pageYOffset < lastPageYOffset)
+			{
+				requestAnimationFrame(move);
+			}
+		}
+		requestAnimationFrame(move);
 	}
 })();
