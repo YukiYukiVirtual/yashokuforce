@@ -6,7 +6,6 @@
 		return;
 	};
 	const scrollTime = 500;
-	const scrollInterval = 10;
 	// 最後のスクロール位置を取得
 	const lastPageYOffset = 0 + localStorage.getItem("pageYOffset");
 	// spread sheetからjsonを取得する処理
