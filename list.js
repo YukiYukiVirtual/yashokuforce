@@ -1,14 +1,16 @@
 (function()
 {
 	// 最後のスクロール位置を保存するイベント
-	window.addEventListener("beforeunload", function(e) {
+	function beforeUnload(e) {
 		// filter-listの０番目の要素のクラスにfilter-selectedが含まれていれば（すべてが選択されていれば）
 		if(document.getElementById("filter-list").children[0].classList.contains("filter-selected"))
 			localStorage.setItem("pageYOffset", pageYOffset);
 		else
 			localStorage.deleteItem("pageYOffset");
 		return;
-	});
+	}
+	window.addEventListener("beforeunload", beforeUnload);
+	window.addEventListener("pagehide", beforeUnload);
 	const scrollTime = 500;
 	// 最後のスクロール位置を取得
 	const lastPageYOffset = 0 + localStorage.getItem("pageYOffset");
