@@ -1,12 +1,7 @@
 (function()
 {
-	
-	console.log(requestAnimationFrame);
-	console.log(pageYOffset);
-	console.log(window.pageYOffset);
 	// 最後のスクロール位置を保存するイベント
 	window.addEventListener("beforeunload", function(e) {
-		console.log("onbeforeunload");
 		// filter-listの０番目の要素のクラスにfilter-selectedが含まれていれば（すべてが選択されていれば）
 		if(document.getElementById("filter-list").children[0].classList.contains("filter-selected"))
 			localStorage.setItem("pageYOffset", pageYOffset);
@@ -209,7 +204,6 @@
 	}
 	function restorePageOffset()
 	{
-		console.log("restorePageOffset");
 		const startTime = new Date();
 		const scrollTime = 500;
 		function ease(p)
@@ -220,7 +214,7 @@
 		{
 			const p = (new Date() - startTime) / scrollTime;
 			const y = lastPageYOffset * ease(p < 0.99?p:1);
-			window.scrollTo(0, y);
+			window.scroll(0, y);
 			if(pageYOffset < lastPageYOffset)
 			{
 				requestAnimationFrame(move);
