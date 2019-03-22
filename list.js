@@ -1,10 +1,19 @@
 (function()
 {
+	
+	console.log(requestAnimationFrame);
+	console.log(pageYOffset);
+	console.log(window.pageYOffset);
 	// 最後のスクロール位置を保存するイベント
-	window.onbeforeunload = function(e) {
-		localStorage.setItem("pageYOffset", pageYOffset);
+	window.addEventListener("beforeunload", function(e) {
+		console.log("onbeforeunload");
+		// filter-listの０番目の要素のクラスにfilter-selectedが含まれていれば（すべてが選択されていれば）
+		if(document.getElementById("filter-list").children[0].classList.contains("filter-selected"))
+			localStorage.setItem("pageYOffset", pageYOffset);
+		else
+			localStorage.deleteItem("pageYOffset");
 		return;
-	};
+	});
 	const scrollTime = 500;
 	// 最後のスクロール位置を取得
 	const lastPageYOffset = 0 + localStorage.getItem("pageYOffset");
@@ -200,6 +209,7 @@
 	}
 	function restorePageOffset()
 	{
+		console.log("restorePageOffset");
 		const startTime = new Date();
 		const scrollTime = 500;
 		function ease(p)
@@ -211,7 +221,6 @@
 			const p = (new Date() - startTime) / scrollTime;
 			const y = lastPageYOffset * ease(p < 0.99?p:1);
 			window.scrollTo(0, y);
-			console.log(pageYOffset);
 			if(pageYOffset < lastPageYOffset)
 			{
 				requestAnimationFrame(move);
