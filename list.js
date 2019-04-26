@@ -108,6 +108,10 @@
 			move.textContent = "得意ムーブ：" + getValue("得意ムーブ");
 			profile.appendChild(move);
 			
+			const whatisAvatar = document.createElement("div");
+			whatisAvatar.textContent = "アバターとは：" + getValue("アバターとは");
+			profile.appendChild(whatisAvatar);
+			
 			const foodVector = document.createElement("div");
 			foodVector.textContent = "食べ物の方向性：" + getValue("食べ物の方向性");
 			profile.appendChild(foodVector);
