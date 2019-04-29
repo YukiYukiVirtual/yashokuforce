@@ -212,24 +212,29 @@
 			})();
 		}
 	}
+	
+	// 前回「ぜんぶ」でスクロールしていた位置を復元する
 	function restorePageOffset()
 	{
-		const startTime = new Date();
-		const scrollTime = 500;
+		const startTime = new Date();	// 復元開始時間
+		// ウィンって動く関数
 		function ease(p)
 		{
 			return (0.5 - Math.cos(p * Math.PI) / 2); // swing
 		}
+		// 動かす関数
 		function move()
 		{
-			const p = (new Date() - startTime) / scrollTime;
-			const y = lastPageYOffset * ease(p < 0.99?p:1);
+			const pastTime = new Date() - startTime;	// 経過時間
+			const p = pastTime / scrollTime;	// scrollTimeに対する進捗度
+			const y = lastPageYOffset * ease(p < 0.99?p:1);	// 前回のY座標までウィンって動く
 			window.scroll(0, y);
-			if(pageYOffset < lastPageYOffset)
+			
+			if(pageYOffset < lastPageYOffset && pastTime <= scrollTime)	// Y座標に達していないか、時間制限を超えていなければもう一度呼び出す
 			{
-				requestAnimationFrame(move);
+				requestAnimationFrame(move);	// もう一度呼び出す
 			}
 		}
-		requestAnimationFrame(move);
+		requestAnimationFrame(move);	// 動作開始
 	}
 })();
