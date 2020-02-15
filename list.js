@@ -124,6 +124,17 @@
 			role.textContent = "役割：" + getValue("役割");
 			profile.appendChild(role);
 			
+			const wishlistURL = encodeURI(getValue("ほしいも"));
+			if(wishlistURL.indexOf("https://www.amazon.co.jp/registry/wishlist/") === 0)
+			{
+				const wishlistLink = document.createElement("a");
+				const wishlist = document.createElement("div");
+				wishlistLink.textContent = "◆ほしいも◆";
+				wishlistLink.href = wishlistURL;
+				wishlist.appendChild(wishlistLink);
+				profile.appendChild(wishlist);
+			}
+			
 			const clubs = document.createElement("div");
 			clubs.textContent = "◆部活";
 			profile.appendChild(clubs);
